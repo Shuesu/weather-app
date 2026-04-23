@@ -54,12 +54,7 @@ export function Highlights({ data }: Props) {
 
                 <div className={styles.card}>
                     <div className={styles.cardTitle}>Влажность</div>
-                    <div className={styles.humRow}>
-                        <div className={styles.value}>{humidity}<span>%</span></div>
-                        <div className={styles.barTrack}>
-                            <div className={styles.barFill} style={{ height: `${humidity}%` }} />
-                        </div>
-                    </div>
+                    <div className={styles.value}>{humidity}<span>%</span></div>
                     <div className={styles.sub}>{humidity < 40 ? 'Сухо 💨' : humidity < 70 ? 'Норма 👍' : 'Влажно 💧'}</div>
                 </div>
 

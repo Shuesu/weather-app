@@ -1,5 +1,6 @@
 import styles from './Sidebar.module.css'
 import { useWeatherStore } from '@/entities/weather/model/weatherStore'
+import { getWeatherEmoji } from '@/shared/lib/weather'
 import { SearchCity } from '@/features/search-city/ui/SearchCity'
 import type {CurrentWeather} from "@/entities/weather/model/types.ts";
 
@@ -15,14 +16,9 @@ export function Sidebar({ data }: Props) {
             <SearchCity />
 
             <div className={styles.iconWrap}>
-                <div className={styles.sun} />
-                <div className={styles.cloud} />
-                <div className={styles.rainLines}>
-                    <div className={styles.rain} style={{ height: 18 }} />
-                    <div className={styles.rain} style={{ height: 24 }} />
-                    <div className={styles.rain} style={{ height: 14 }} />
-                    <div className={styles.rain} style={{ height: 20 }} />
-                </div>
+                <span className={styles.weatherEmoji}>
+                    {data?.weather[0]?.main ? getWeatherEmoji(data.weather[0].main) : '⛅'}
+                </span>
             </div>
 
             <div className={styles.temp}>

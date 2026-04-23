@@ -1,16 +1,13 @@
-import { useLocation, Link } from 'react-router-dom'
-import { useWeatherStore } from '@/entities/weather/model/weatherStore'
 import { useWeatherData } from '@/entities/weather/model/useWeatherData'
 import { DAYS, getIcon } from '@/shared/lib/weather'
 import type { ForecastItem } from '@/entities/weather/model/types'
 import { MainLayout } from '@/app/layouts/MainLayout'
 import { Sidebar } from '@/widgets/sidebar/ui/Sidebar'
+import { TopBar } from '@/widgets/top-bar/ui/TopBar'
 import styles from './WeekPage.module.css'
 
 export function WeekPage() {
-    const { units, setUnits } = useWeatherStore()
     const { current, forecast, error, loading } = useWeatherData()
-    const location = useLocation()
 
     const daily = forecast?.list.filter((_: ForecastItem, i: number) => i % 8 === 0).slice(0, 7) ?? []
 
@@ -19,16 +16,7 @@ export function WeekPage() {
             sidebar={<Sidebar data={current} />}
             content={
                 <div className={styles.content}>
-                    <div className={styles.toprow}>
-                        <div className={styles.tabs}>
-                            <Link to="/today" className={`${styles.tab} ${location.pathname === '/today' ? styles.active : ''}`}>Today</Link>
-                            <Link to="/week" className={`${styles.tab} ${location.pathname === '/week' ? styles.active : ''}`}>Week</Link>
-                        </div>
-                        <div className={styles.units}>
-                            <button className={`${styles.unitBtn} ${units === 'metric' ? styles.unitActive : ''}`} onClick={() => setUnits('metric')}>°C</button>
-                            <button className={`${styles.unitBtn} ${units === 'imperial' ? styles.unitActive : ''}`} onClick={() => setUnits('imperial')}>°F</button>
-                        </div>
-                    </div>
+                    <TopBar />
 
                     {loading && <div className={styles.loading}>Загрузка...</div>}
                     {error && <div className={styles.error}>⚠️ {error} — попробуй другой город</div>}

@@ -60,3 +60,10 @@
 .card.active .lo {
     color: rgba(255,255,255,0.5);
 }
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+}

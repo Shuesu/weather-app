@@ -24,3 +24,24 @@
     gap: 16px;
     overflow-y: auto;
 }
+
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: unset;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+}

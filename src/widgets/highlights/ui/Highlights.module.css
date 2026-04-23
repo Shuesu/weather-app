@@ -114,3 +114,9 @@
     background: #5b7cfa;
     min-height: 4px;
 }
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

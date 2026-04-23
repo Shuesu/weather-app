@@ -1,0 +1,72 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.toprow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabs {
+    display: flex;
+    gap: 4px;
+}
+
+.tab {
+    font-size: 14px;
+    font-weight: 500;
+    color: #bbb;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.tab.active {
+    color: #1a1a2e;
+    border-bottom: 2px solid #1a1a2e;
+}
+
+.units {
+    display: flex;
+    gap: 4px;
+}
+
+.unitBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: #aaa;
+    font-family: 'Inter', sans-serif;
+}
+
+.unitActive {
+    background: #1a1a2e;
+    color: #fff;
+}
+
+.loading {
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.error {
+    font-size: 14px;
+    color: #e74c3c;
+    background: #fdf0f0;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.tab {
+    text-decoration: none;
+    color: #bbb;
+}

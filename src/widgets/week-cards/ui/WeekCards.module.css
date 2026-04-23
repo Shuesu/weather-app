@@ -1,0 +1,62 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.loading {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.card.active {
+    background: #1a1a2e;
+}
+
+.dayName {
+    font-size: 12px;
+    font-weight: 500;
+    color: #aaa;
+}
+
+.card.active .dayName {
+    color: #fff;
+}
+
+.icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.temps {
+    display: flex;
+    gap: 3px;
+    font-size: 11px;
+}
+
+.hi {
+    color: #1a1a2e;
+    font-weight: 600;
+}
+
+.lo {
+    color: #bbb;
+}
+
+.card.active .hi {
+    color: #fff;
+}
+
+.card.active .lo {
+    color: rgba(255,255,255,0.5);
+}

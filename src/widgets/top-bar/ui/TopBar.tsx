@@ -10,8 +10,8 @@ export function TopBar() {
     return (
         <div className={styles.toprow}>
             <div className={styles.tabs}>
-                <Link to="/today" className={`${styles.tab} ${location.pathname === '/today' ? styles.active : ''}`}>Today</Link>
-                <Link to="/week" className={`${styles.tab} ${location.pathname === '/week' ? styles.active : ''}`}>Week</Link>
+                <Link to="/today" className={`${styles.tab} ${location.pathname === '/today' ? styles.active : ''}`}>Сегодня</Link>
+                <Link to="/week" className={`${styles.tab} ${location.pathname === '/week' ? styles.active : ''}`}>Неделя</Link>
             </div>
             <div className={styles.actions}>
                 <SoundButton />

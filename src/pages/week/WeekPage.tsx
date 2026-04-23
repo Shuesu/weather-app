@@ -17,7 +17,6 @@ export function WeekPage() {
             content={
                 <div className={styles.content}>
                     <TopBar />
-
                     {loading && <div className={styles.loading}>Загрузка...</div>}
                     {error && <div className={styles.error}>⚠️ {error} — попробуй другой город</div>}
 

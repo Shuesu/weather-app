@@ -6,7 +6,7 @@ export function SoundButton() {
 
     return (
         <button className={`${styles.btn} ${playing ? styles.active : ''}`} onClick={toggleSound}>
-            {playing ? '🔊 SOUND' : '🔇 SOUND'}
+            {playing ? '🔊 Звук' : '🔇 Звук'}
         </button>
     )
 }

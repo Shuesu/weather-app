@@ -21,7 +21,7 @@ export function SearchCity() {
         <div className={styles.search}>
             <span>🔍</span>
             <input
-                placeholder="Search for places..."
+                placeholder="Поиск города..."
                 className={styles.input}
                 value={input}
                 onChange={e => setInput(e.target.value)}

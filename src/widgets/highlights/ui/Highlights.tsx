@@ -17,7 +17,7 @@ export function Highlights({ data }: Props) {
 
     return (
         <div>
-            <div className={styles.title}>Сегодня</div>
+            <div className={styles.title}>Погода</div>
             <div className={styles.grid}>
                 <div className={styles.card}>
                     <div className={styles.cardTitle}>Скорость ветра</div>

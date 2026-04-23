@@ -1,41 +1,18 @@
-import { useState } from 'react'
 import styles from './Sidebar.module.css'
 import { useWeatherStore } from '@/entities/weather/model/weatherStore'
+import { SearchCity } from '@/features/search-city/ui/SearchCity'
+import type {CurrentWeather} from "@/entities/weather/model/types.ts";
 
 interface Props {
-    data: any
+    data: CurrentWeather | null
 }
 
 export function Sidebar({ data }: Props) {
-    const { city, setCity } = useWeatherStore()
-    const [input, setInput] = useState('')
-
-    const handleSearch = () => {
-        if (input.trim()) {
-            setCity(input.trim())
-            setInput('')
-        }
-    }
-
-    const handleKey = (e: React.KeyboardEvent) => {
-        if (e.key === 'Enter') handleSearch()
-    }
+    const { city } = useWeatherStore()
 
     return (
         <div className={styles.sidebar}>
-            <div className={styles.search}>
-                <span>🔍</span>
-                <input
-                    placeholder="Search for places..."
-                    className={styles.input}
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
-                    onKeyDown={handleKey}
-                />
-                {input && (
-                    <span className={styles.searchBtn} onClick={handleSearch}>→</span>
-                )}
-            </div>
+            <SearchCity />
 
             <div className={styles.iconWrap}>
                 <div className={styles.sun} />

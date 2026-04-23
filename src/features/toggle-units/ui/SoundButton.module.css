@@ -1,0 +1,19 @@
+.btn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.btn.active {
+    border-color: #1a1a2e;
+    color: #1a1a2e;
+    background: #f0f0f5;
+}

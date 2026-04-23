@@ -1,7 +1,8 @@
 import styles from './Highlights.module.css'
+import type {CurrentWeather} from "@/entities/weather/model/types.ts";
 
 interface Props {
-    data: any
+    data: CurrentWeather | null
 }
 
 export function Highlights({ data }: Props) {

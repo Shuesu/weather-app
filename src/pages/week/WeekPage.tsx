@@ -1,45 +1,18 @@
-import { useEffect, useState } from 'react'
-import { fetchCurrentWeather, fetchWeekWeather } from '@/shared/api/weatherApi'
+import { useLocation, Link } from 'react-router-dom'
 import { useWeatherStore } from '@/entities/weather/model/weatherStore'
+import { useWeatherData } from '@/entities/weather/model/useWeatherData'
+import { DAYS, getIcon } from '@/shared/lib/weather'
+import type { ForecastItem } from '@/entities/weather/model/types'
 import { MainLayout } from '@/app/layouts/MainLayout'
 import { Sidebar } from '@/widgets/sidebar/ui/Sidebar'
-import { Link, useLocation } from 'react-router-dom'
 import styles from './WeekPage.module.css'
 
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-function getIcon(condition: string) {
-    const map: Record<string, string> = {
-        Clear: '☀️', Clouds: '⛅', Rain: '🌧️',
-        Snow: '❄️', Thunderstorm: '⛈️', Drizzle: '🌦️', Mist: '🌫️',
-    }
-    return map[condition] ?? '🌤️'
-}
-
 export function WeekPage() {
-    const { city, units, setUnits } = useWeatherStore()
-    const [current, setCurrent] = useState<any>(null)
-    const [forecast, setForecast] = useState<any>(null)
-    const [error, setError] = useState<string | null>(null)
-    const [loading, setLoading] = useState(false)
+    const { units, setUnits } = useWeatherStore()
+    const { current, forecast, error, loading } = useWeatherData()
     const location = useLocation()
 
-    useEffect(() => {
-        setLoading(true)
-        setError(null)
-        Promise.all([
-            fetchCurrentWeather(city, units),
-            fetchWeekWeather(city, units)
-        ])
-            .then(([curr, fore]) => {
-                setCurrent(curr)
-                setForecast(fore)
-            })
-            .catch(err => setError(err.message))
-            .finally(() => setLoading(false))
-    }, [city, units])
-
-    const daily = forecast?.list.filter((_: any, i: number) => i % 8 === 0).slice(0, 7) ?? []
+    const daily = forecast?.list.filter((_: ForecastItem, i: number) => i % 8 === 0).slice(0, 7) ?? []
 
     return (
         <MainLayout
@@ -62,7 +35,7 @@ export function WeekPage() {
 
                     {!loading && !error && (
                         <div className={styles.list}>
-                            {daily.map((item: any, i: number) => {
+                            {daily.map((item: ForecastItem, i: number) => {
                                 const date = new Date(item.dt * 1000)
                                 const day = DAYS[date.getDay()]
                                 const icon = getIcon(item.weather[0].main)

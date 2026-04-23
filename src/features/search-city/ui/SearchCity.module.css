@@ -1,0 +1,26 @@
+.search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f7f7fb;
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 13px;
+    color: #333;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 16px;
+    color: #5b7cfa;
+}

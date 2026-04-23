@@ -31,7 +31,7 @@ export function WeekPage() {
 
                                 return (
                                     <div key={i} className={styles.row}>
-                                        <div className={styles.dayName}>{i === 0 ? 'Today' : day}</div>
+                                        <div className={styles.dayName}>{i === 0 ? 'Сегодня' : day}</div>
                                         <div className={styles.icon}>{icon}</div>
                                         <div className={styles.desc}>{desc}</div>
                                         <div className={styles.stats}>

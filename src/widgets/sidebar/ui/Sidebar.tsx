@@ -27,7 +27,7 @@ export function Sidebar({ data }: Props) {
             </div>
 
             <div className={styles.date}>
-                {new Date().toLocaleDateString('en-US', {
+                {new Date().toLocaleDateString('ru-RU', {
                     weekday: 'long',
                     hour: '2-digit',
                     minute: '2-digit'

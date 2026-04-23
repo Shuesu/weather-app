@@ -43,7 +43,7 @@ export function Sidebar({ data }: Props) {
 
             <div className={styles.condRow}>
                 <span>💧</span>
-                <span>Humidity — {data?.main?.humidity ?? '--'}%</span>
+                <span>Влажность — {data?.main?.humidity ?? '--'}%</span>
             </div>
 
             <div className={styles.cityCard}>

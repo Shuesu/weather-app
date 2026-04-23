@@ -97,4 +97,7 @@
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .card {
+        padding: 10px;
+    }
 }
